@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/manualBtn"
+        android:layout_width="132dp"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:text="手动打卡"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/autoBtn"
+        android:layout_width="132dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="自动打卡"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manualBtn"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/cancelBtn"
+        android:layout_width="132dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="取消打卡"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manualBtn"
+        app:layout_constraintVertical_bias="0.257" />
+    <TextView
+        android:id="@+id/commentTv"
+        android:layout_width="304dp"
+        android:layout_height="211dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="left"
+        android:text="备注：\n事例：如果选择时间为2019-02-27 09:00，则打卡时间会在当前时间往前推一段时间（随机：幅度为0~20分钟），比如可能为08：55，也可能为08：50.
+        \n手动打卡只会打卡一次，需要每天设置。
+        \n自动打卡会在下一天时间自动打卡，打卡时间仍然是个随机值，并且在星期6、星期7不打卡。
+        \n注意：如果当前请假的话，请提前一天取消打卡功能，或者在其他设备登陆下钉钉"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
