@@ -27,7 +27,6 @@ public class AlarmService extends Service {
     private boolean mAuto;
     private long mStartTime;
     private PendingIntent mPendingIntent;
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -69,19 +68,15 @@ public class AlarmService extends Service {
         Intent launchIntent = new Intent(IntentDingdingBroadcast.ACTION);
         launchIntent.putExtra("auto", mAuto);
         mPendingIntent = PendingIntent.getBroadcast(this, 0, launchIntent, PendingIntent.FLAG_ONE_SHOT);
-        manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mPendingIntent);
+        AlarmManager.AlarmClockInfo clockInfo = new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis(), mPendingIntent);
+        manager.setAlarmClock(clockInfo, mPendingIntent);
+
         return START_STICKY;
     }
 
     private String formatTime(Date date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         return dateFormat.format(date);
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 
     public static Calendar getNextWakeUpTime(long millSeconds) {
@@ -111,5 +106,11 @@ public class AlarmService extends Service {
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mBroadcast);
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 }
